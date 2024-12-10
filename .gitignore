@@ -1,0 +1,21 @@
+# Ignorar tudo
+*
+
+# Permitir diretórios e arquivos específicos
+!/.venv/  # Opcional, geralmente o .venv não é incluído no repositório
+!/Data/
+!/dados_resultados.csv
+!/templates/
+!/templates/index.html
+!/templates/resultado.html
+!/static/
+!/static/Lote.geojson
+!/app.py
+!/Procfile
+!/requirements.txt
+!/model_BRF.joblib
+!/runtime.txt
+
+# Ignorar arquivos de log, dados sensíveis, etc.
+*.log
+*.dat
