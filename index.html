@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapa Interativo</title>
+</head>
+<body>
+    <h1>Bem-vindo ao Mapa Interativo</h1>
+    <button onclick="analyzeData()">Analisar</button>
+    <script>
+        function analyzeData() {
+            fetch('/api/analisar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => response.json())
+            .then(data => {
+                const url = `/resultado?resultado=${data.resultado}&probabilidade=${data.probabilidade}&resumo=${encodeURIComponent(JSON.stringify(data.resumo))}`;
+                window.location.href = url;
+            })
+            .catch((error) => {
+                console.error('Erro:', error);
+            });
+        }
+    </script>
+</body>
+</html>

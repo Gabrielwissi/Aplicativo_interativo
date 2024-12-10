@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado da Análise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .result {
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .promissor {
+            color: green;
+            font-weight: bold;
+        }
+
+        .nao-promissor {
+            color: red;
+            font-weight: bold;
+        }
+
+        .summary {
+            margin-top: 20px;
+        }
+
+        .summary p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            background: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+
+        .button-container a:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resultado da Análise</h1>
+
+        <div class="result {{ 'promissor' if resultado == 1 else 'nao-promissor' }}">
+            {{ 'Terreno Promissor' if resultado == 1 else 'Terreno Não Promissor' }}
+        </div>
+
+        <p class="result">
+            Probabilidade: {{ probabilidade * 100 }}%
+        </p>
+
+        <div class="summary">
+            <h2>Resumo</h2>
+            <p><strong>Área Total:</strong> {{ resumo['area_total'] }} m²</p>
+            <p><strong>Testada:</strong> {{ resumo['testada_calculo'] }} metros</p>
+            <p><strong>Zona:</strong> {{ resumo['zona'] }}</p>
+            <p><strong>Valor m² Comercial:</strong> R$ {{ resumo['Valor_m2_comercial'] }}</p>
+            <p><strong>Valor Comercial:</strong> R$ {{ resumo['Valor_comercial'] }}</p>
+        </div>
+
+        <div class="button-container">
+            <a href="/">Voltar</a>
+        </div>
+    </div>
+</body>
+</html>
